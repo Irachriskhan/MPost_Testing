@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-16T07:47:34.960Z",
+    "end": "2025-09-16T07:48:14.107Z",
+    "duration": 39147,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bd32b737-9495-43b9-ac16-b036d0b5a1e6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\MPost\\aboutUsPage.cy.ts",
+      "file": "cypress\\e2e\\MPost\\aboutUsPage.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "69582841-0d01-4cb1-a8d1-7a13350d3e45",
+          "title": "MPost About Us Page - Test Case 1",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should assert the page title",
+              "fullTitle": "MPost About Us Page - Test Case 1 should assert the page title",
+              "timedOut": null,
+              "duration": 20688,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// assert the page title\ncy.title().should('eq', 'MPost - Exchange Anything. Anytime. Anywhere.');\n// assert the meta description content\ncy.get('head meta[name=\"description\"]').should('have.attr', 'content', 'MPost - Join millions of individuals and businesses using MPOST as their universal digital address—enabling secure mail and parcel delivery, hassle-free returns for online shoppers, and seamless identity verification for both local and global transactions.');\n// assert \"ABOUT US\" heading visibility\ncy.contains('h1', 'ABOUT US').should('be.visible');\n// assert the mission description visibility\ncy.contains('Learn more about MPost and our mission to provide universal digital addresses.').should('be.visible');",
+              "err": {},
+              "uuid": "c7f899f0-8c1e-4dab-9b64-d1418efb5ea3",
+              "parentUUID": "69582841-0d01-4cb1-a8d1-7a13350d3e45",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should should navigate the whole page",
+              "fullTitle": "MPost About Us Page - Test Case 1 should should navigate the whole page",
+              "timedOut": null,
+              "duration": 12269,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Scroll to Company Profile visibility\ncy.contains('h2', 'COMPANY PROFILE').scrollIntoView().should('be.visible');\n// assert vision and mission visibility\ncy.contains('h2', 'Vision').scrollIntoView().should('be.visible');\ncy.contains('h2', 'Mission').scrollIntoView().should('be.visible');\n// assert core values visibility\ncy.contains('h2', 'Enabling E-commerce, KYC Address Verification, and Seamless Delivery')\n    .scrollIntoView()\n    .should('be.visible');\n// assert \"Our Solutions and Policies\" section visibility\ncy.contains('h2', 'Our Solutions and Policies').scrollIntoView().should('be.visible');\n// Assert presence of button and links\ncy.contains('button', 'View Solutions').should('be.visible');\ncy.contains('a', 'User Terms and Conditions').should('be.visible');\ncy.contains('a', 'Our Privacy Policy').should('be.visible');",
+              "err": {},
+              "uuid": "6bde6112-a55f-409c-b5a0-dcac01d1b121",
+              "parentUUID": "69582841-0d01-4cb1-a8d1-7a13350d3e45",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c7f899f0-8c1e-4dab-9b64-d1418efb5ea3",
+            "6bde6112-a55f-409c-b5a0-dcac01d1b121"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 32957,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-16T06:42:02.582Z",
+    "end": "2025-09-16T06:42:47.224Z",
+    "duration": 44642,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "579ee147-54ab-43e8-bead-8c8222720b8a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\MPost\\ourSolutionPage.cy.ts",
+      "file": "cypress\\e2e\\MPost\\ourSolutionPage.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "07542987-652c-4056-8bff-11fefc3bed04",
+          "title": "MPost Our Solution Page Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should load page and display main elements",
+              "fullTitle": "MPost Our Solution Page Tests should load page and display main elements",
+              "timedOut": null,
+              "duration": 10272,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Assert page title\ncy.title().should(\"include\", \"MPost - Say Goodbye to Unverifiable Addresses and Frustrating Deliveries\");\ncy.get(\"meta[name='description']\").should(\"have.attr\", \"content\", \"Whether you're an individual, a business, or a government agency, MPost helps you connect, deliver, and grow, anywhere, anytime.\");\n// Assert page heading\ncy.contains(\"h1\", \"OUR SOLUTIONS\").should(\"be.visible\");\n// Assert page description\ncy.contains(\"Say Goodbye to Unverifiable Addresses and Frustrating Deliveries\").should(\"be.visible\");\n// Assert presence of buttons\ncy.contains(\"button\", \"Get Your Digital Address\").should(\"be.visible\");\ncy.contains(\"button\", \"Partner With Us\").should(\"be.visible\");",
+              "err": {},
+              "uuid": "554cad98-c630-4c9b-91c8-9e74bb90e237",
+              "parentUUID": "07542987-652c-4056-8bff-11fefc3bed04",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should scroll to 'Solutions' and validate each left navigation item",
+              "fullTitle": "MPost Our Solution Page Tests should scroll to 'Solutions' and validate each left navigation item",
+              "timedOut": null,
+              "duration": 6724,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Scroll to Solutions heading\ncy.contains(\"h3\", \"Solutions\").scrollIntoView().should(\"be.visible\");\n// Navigation list assertions\nconst navItems = [\n    \"Individuals & Small Businesses\",\n    \"Postal Authorities\",\n    \"Financial Institutions\",\n    \"E-commerce & Logistics\",\n    \"Coming Soon\",\n    \"Why MPost?\",\n];\nnavItems.forEach((item) => {\n    cy.contains(\"li\", item).should(\"be.visible\").click();\n    // cy.contains(\"h2, h3\", item.split(\" \")[0]).should(\"be.visible\"); \n});",
+              "err": {},
+              "uuid": "cbb84fd9-54d9-4dfd-838a-613660141314",
+              "parentUUID": "07542987-652c-4056-8bff-11fefc3bed04",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display the 'Join thousands...' section and buttons",
+              "fullTitle": "MPost Our Solution Page Tests should display the 'Join thousands...' section and buttons",
+              "timedOut": null,
+              "duration": 5700,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Navigate to the section\ncy.contains(\"Join thousands already using MPost to simplify their lives, grow their businesses, and expand their reach.\")\n    .scrollIntoView()\n    .should(\"be.visible\");\n// Assert buttons\ncy.contains(\"button\", \"Get Your Digital Address\").should(\"be.visible\");\ncy.contains(\"button\", \"Partner With Us\").should(\"be.visible\");",
+              "err": {},
+              "uuid": "fe885473-b1b7-44f8-bdac-19e63f63430c",
+              "parentUUID": "07542987-652c-4056-8bff-11fefc3bed04",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "554cad98-c630-4c9b-91c8-9e74bb90e237",
+            "cbb84fd9-54d9-4dfd-838a-613660141314",
+            "fe885473-b1b7-44f8-bdac-19e63f63430c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22696,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-16T07:44:52.870Z",
+    "end": "2025-09-16T07:45:54.992Z",
+    "duration": 62122,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "959f1fe6-4809-44f4-a03f-03c53434736d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\MPost\\LoginPage.cy.ts",
+      "file": "cypress\\e2e\\MPost\\LoginPage.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "de0f21b5-5c7d-40a0-a3de-c9013a0bea50",
+          "title": "MPost Login Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should load the Login Page successfully",
+              "fullTitle": "MPost Login Page Should load the Login Page successfully",
+              "timedOut": null,
+              "duration": 11307,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(\"h2\", \"Login to your account\").should(\"be.visible\");\n// Click on the Login button\ncy.get(\"button[type='submit']\").contains(\"Sign In\").click();\n// Assert on the redirection to the login page\ncy.url().should(\"eq\", \"https://staging.mpost.global/auth/login\");\ncy.wait(2000);\n// Assert on the presence of required fields\ncy.get(\"input[type='email']\").should(\"be.visible\");\ncy.get(\"input[id='password']\").should(\"be.visible\");\ncy.get(\"button[type='submit']\").should(\"be.visible\");\ncy.contains(\"Sign up\").should(\"be.visible\");\ncy.contains(\"Forgot password?\").should(\"be.visible\");",
+              "err": {},
+              "uuid": "8327e3dc-c4fb-47ca-80e5-1b98f1324e7f",
+              "parentUUID": "de0f21b5-5c7d-40a0-a3de-c9013a0bea50",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should validate empty field of the form",
+              "fullTitle": "MPost Login Page should validate empty field of the form",
+              "timedOut": null,
+              "duration": 5040,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//  Assert the presence of the text \"Login to your account\"\ncy.contains(\"h2\", \"Login to your account\").should(\"be.visible\");\n// Select the \"Email\" option and click on it\ncy.contains(\"button\", \"Email\").should(\"be.visible\").click();\n// Click \"Sign In\" without filling the form \ncy.contains(\"button\", \"Sign In\").click();\n// Assert validation messages for required fields\ncy.get(\"div.text-red-500.text-sm\")\n    .should(\"have.length.at.least\", 1)\n    .each(($el) => {\n    cy.wrap($el).should(\"contain.text\", \"Required\");\n});\n// Assert the presence of \"Forgot password?\" link\ncy.contains(\"a\", \"Forgot password?\")\n    .should(\"be.visible\")\n    .and(\"have.attr\", \"href\", \"/auth/forgot-password\");",
+              "err": {},
+              "uuid": "3f1d9b37-7b7e-4ec3-9b4b-64583fc8b83f",
+              "parentUUID": "de0f21b5-5c7d-40a0-a3de-c9013a0bea50",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show error message for invalid email",
+              "fullTitle": "MPost Login Page should show error message for invalid email",
+              "timedOut": null,
+              "duration": 5338,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Type invalid email into email input\ncy.get(\"input[name='identifier']\").type(\"Invalidemail\");\n// Type some password \ncy.get(\"input[name='password']\").type(\"randomPassword\");\n// Click Sign In\ncy.contains(\"button\", \"Sign In\").click();\n// Assert error message appears\ncy.get(\"div.text-red-500.text-sm\")\n    .should(\"be.visible\")\n    .and(($el) => {\n    const text = $el.text();\n    expect(text).to.satisfy((t) => t.includes(\"Invalid email format\") || t.includes(\"Required\"));\n});",
+              "err": {},
+              "uuid": "695a6429-ad45-4e33-9412-61570792e097",
+              "parentUUID": "de0f21b5-5c7d-40a0-a3de-c9013a0bea50",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should allow phone number login and validate empty submission",
+              "fullTitle": "MPost Login Page should allow phone number login and validate empty submission",
+              "timedOut": null,
+              "duration": 8560,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 1. Click on Phone Number tab\ncy.contains(\"button\", \"Phone Number\").click();\n// 2. Assert the presence of the phone number input field\ncy.get(\"input[name='identifier'][type='tel']\")\n    .should(\"exist\")\n    .and(\"be.visible\")\n    .and(\"have.attr\", \"placeholder\", \"Enter your phone number\");\ncy.wait(4000);\n// 3. Assert the presence of the country code select\ncy.get(\"select[name='identifierCountry']\")\n    .should(\"exist\");\n// 4. Click \"Sign In\" without filling phone number\ncy.contains(\"button span\", \"Sign In\").click();\n// 5. Assert the error message \"Required\"\ncy.get(\"div.text-red-500.text-sm\")\n    .should(\"be.visible\")\n    .and(\"contain.text\", \"Required\");",
+              "err": {},
+              "uuid": "ab6e08bb-8596-4604-a4f9-73b65af27bad",
+              "parentUUID": "de0f21b5-5c7d-40a0-a3de-c9013a0bea50",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display all Forgot Password elements correctly",
+              "fullTitle": "MPost Login Page should display all Forgot Password elements correctly",
+              "timedOut": null,
+              "duration": 7149,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Click on the \"Forgot password?\" link\ncy.contains(\"a\", \"Forgot password?\")\n    .should(\"be.visible\")\n    .and(\"have.attr\", \"href\", \"/auth/forgot-password\").click();\n// Assert presence of the text \"Forgot Password\"\ncy.contains(\"Forgot Password\").should(\"be.visible\");\n// Assert presence of the buttons \"Email\" and \"Phone Number\"\ncy.contains(\"button\", \"Email\").should(\"exist\").and(\"be.visible\");\ncy.contains(\"button\", \"Phone Number\").should(\"exist\").and(\"be.visible\");\n// Assert presence of the email input field\ncy.get(\"input[name='identifier']\")\n    .should(\"exist\")\n    .and(\"be.visible\")\n    .and(\"have.attr\", \"placeholder\", \"Enter your email\");\n// Assert presence of the \"Send Reset Instructions\" button\ncy.contains(\"button span\", \"Send Reset Instructions\")\n    .should(\"exist\")\n    .and(\"be.visible\");",
+              "err": {},
+              "uuid": "44047447-1ba8-47a9-8297-f16aa177056f",
+              "parentUUID": "de0f21b5-5c7d-40a0-a3de-c9013a0bea50",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display confirmation message and allow return to login",
+              "fullTitle": "MPost Login Page should display confirmation message and allow return to login",
+              "timedOut": null,
+              "duration": 16790,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Click on the \"Forgot password?\" link\ncy.contains(\"a\", \"Forgot password?\")\n    .should(\"be.visible\")\n    .and(\"have.attr\", \"href\", \"/auth/forgot-password\").click();\ncy.wait(3000);\n// Fill in a valid email address\ncy.get(\"input[name='identifier']\")\n    .should(\"exist\")\n    .and(\"be.visible\")\n    .type(\"irachriskhan@gmail.com\");\ncy.get(\"button[type='submit']\").click();\ncy.wait(3000);\n// Assert presence of the text \"Password Reset Email Sent\"\ncy.contains(\"h3\", \"Password Reset Email Sent\")\n    .should(\"exist\")\n    .and(\"be.visible\");\n// Assert presence of the \"Return to login\" link\ncy.contains(\"a\", \"Return to login\")\n    .should(\"exist\")\n    .and(\"be.visible\")\n    .and(\"have.attr\", \"href\", \"/auth/login\");\n// 3. Assert redirection to login page if clicked\ncy.contains(\"a\", \"Return to login\").click();\ncy.url().should(\"include\", \"/auth/login\");\n// Optional: confirm login heading exists on redirected page\ncy.contains(\"h2\", \"Login to your account\").should(\"be.visible\");",
+              "err": {},
+              "uuid": "93a14063-588c-4629-94c5-d9355fa94e65",
+              "parentUUID": "de0f21b5-5c7d-40a0-a3de-c9013a0bea50",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8327e3dc-c4fb-47ca-80e5-1b98f1324e7f",
+            "3f1d9b37-7b7e-4ec3-9b4b-64583fc8b83f",
+            "695a6429-ad45-4e33-9412-61570792e097",
+            "ab6e08bb-8596-4604-a4f9-73b65af27bad",
+            "44047447-1ba8-47a9-8297-f16aa177056f",
+            "93a14063-588c-4629-94c5-d9355fa94e65"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 54184,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

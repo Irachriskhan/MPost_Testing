@@ -1,0 +1,187 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-16T06:40:04.806Z",
+    "end": "2025-09-16T06:41:58.527Z",
+    "duration": 113721,
+    "testsRegistered": 5,
+    "passPercent": 60,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "caf7f927-216b-4198-8c10-3aa485a73bfa",
+      "title": "",
+      "fullFile": "cypress\\e2e\\MPost\\home.cy.ts",
+      "file": "cypress\\e2e\\MPost\\home.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2e98535e-08d7-411c-bc77-02ac5328c510",
+          "title": "Automation Test of MPost website",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Home Page loads successfully and SEO Tags",
+              "fullTitle": "Automation Test of MPost website Verify Home Page loads successfully and SEO Tags",
+              "timedOut": null,
+              "duration": 11798,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Assert on the presence of the main header\ncy.get(\"nav\").should(\"be.visible\");\n// cy.get(\" div[class='hidden md:flex space-x-8']\").should(\"be.visible\");\n// Assert the title of the page\ncy.title().should(\"eq\", \"MPost - Exchange Anything. Anytime. Anywhere.\");\n// Assert the meta description of the page\ncy.get('head meta[name=\"description\"]')\n    .should(\"have.attr\", \"content\")\n    .and(\"eq\", \"MPost - Join millions of individuals and businesses using MPOST as their universal digital address—enabling secure mail and parcel delivery, hassle-free returns for online shoppers, and seamless identity verification for both local and global transactions.\");\n// Assert on the presence of the logo\ncy.get(\"div[class='flex items-center'] > a[class='text-2xl font-bold text-white flex items-center']\").should(\"be.visible\");\n// Assert on the “Get Your Address” button\ncy.get(\"div[class='space-y-8'] > a[href='/auth/registration']\")\n    .should(\"be.visible\")\n    .and(\"contain.text\", \"Get Your Address\").click();\ncy.wait(2000);\n// Assert on the redirection to the registration page\ncy.url().should(\"eq\", \"https://staging.mpost.global/auth/registration\");",
+              "err": {},
+              "uuid": "b48d2862-ec10-4895-9d97-13aed17f213a",
+              "parentUUID": "2e98535e-08d7-411c-bc77-02ac5328c510",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display all partner logos correctly  and the footer",
+              "fullTitle": "Automation Test of MPost website should display all partner logos correctly  and the footer",
+              "timedOut": null,
+              "duration": 5446,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Validate Global Challenge Section\ncy.contains(\"The Global Challenge\").should(\"be.visible\").scrollIntoView();\ncy.get(\"img\").first().should(\"be.visible\");\n// Scroll to the footer\ncy.scrollTo(\"bottom\");\ncy.contains(\"Trusted by industry leading global companies\").should(\"be.visible\");\ncy.get(\"img[alt='Samurai Incubate Africa']\")\n    .should(\"be.visible\")\n    .and(\"have.attr\", \"src\")\n    .and(\"include\", \"samurai-incubate-africa.png\");\n// Techstars\ncy.get(\"img[alt='Techstars']\")\n    .should(\"be.visible\")\n    .and(\"have.attr\", \"src\")\n    .and(\"include\", \"techstars.png\");\n// Startup Bootcamp\ncy.get(\"img[alt='Startup Bootcamp']\")\n    .should(\"be.visible\")\n    .and(\"have.attr\", \"src\")\n    .and(\"include\", \"startup-bootcamp.png\");\n// Expert Dojo\ncy.get(\"img[alt='Expert Dojo']\")\n    .should(\"be.visible\")\n    .and(\"have.attr\", \"src\")\n    .and(\"include\", \"expert-dojo.png\");\n// Validate Footer Contact Details\n// cy.get(\"footer\").within(() => {\ncy.contains(\"Our Locations\").should(\"be.visible\");\ncy.contains(\"info@mpost.africa\").should(\"be.visible\");\ncy.contains(\"+250791 954 939\").should(\"be.visible\");\ncy.contains(\"0208000631\").should(\"be.visible\");\ncy.contains(\"Rwanda - Headquarters\").should(\"be.visible\");\ncy.contains(\"Mpost Kenya\").should(\"be.visible\");\n// });",
+              "err": {},
+              "uuid": "6c683232-447a-4464-9ddd-3390a01f8ddd",
+              "parentUUID": "2e98535e-08d7-411c-bc77-02ac5328c510",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify the MPost navigation menu links",
+              "fullTitle": "Automation Test of MPost website Verify the MPost navigation menu links",
+              "timedOut": null,
+              "duration": 30274,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Assert on the banner’s visibility\ncy.get(\" div[class='hidden md:flex space-x-8']\")\n    .should(\"be.visible\")\n    .then((nav) => {\n    // Get all the links in the navigation menu\n    const links = nav.find(\"a\");\n    expect(links.length).to.equal(4);\n});\n// Define the expected URLs\nconst expectedUrls = [\n    \"https://staging.mpost.global/\",\n    \"https://staging.mpost.global/our-solution\",\n    \"https://staging.mpost.global/about-us\",\n    \"https://staging.mpost.global/partners\",\n];\n// Use a for loop to click on every URL and verify it\nfor (let i = 0; i < expectedUrls.length; i++) {\n    cy.visit(\"https://staging.mpost.global/\");\n    cy.get(\"div[class='hidden md:flex space-x-8']\")\n        .should(\"be.visible\")\n        .find(\"a\")\n        .eq(i)\n        .then(($link) => {\n        const href = $link.prop(\"href\");\n        expect(href).to.equal(expectedUrls[i]);\n        cy.wrap($link).invoke(\"removeAttr\", \"target\").click();\n        cy.wait(3000);\n    });\n    cy.url().should(\"eq\", expectedUrls[i]);\n    cy.wait(1000);\n}\n// Assert on the presence of the logo\ncy.get(\"div[class='flex items-center'] > a[class='text-2xl font-bold text-white flex items-center']\")\n    .should(\"be.visible\")\n    .click();",
+              "err": {},
+              "uuid": "42128590-156a-4f41-8709-c961225ddbe4",
+              "parentUUID": "2e98535e-08d7-411c-bc77-02ac5328c510",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should navigate the page using the Bottom Navigation bar buttons",
+              "fullTitle": "Automation Test of MPost website Should navigate the page using the Bottom Navigation bar buttons",
+              "timedOut": null,
+              "duration": 60489,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Step-3: Scroll to Geolocation section and validate its elements\ncy.get(\"div[class='relative h-full flex justify-center flex-col max-w-[600px] mx-auto lg:mx-0'] div[class='relative']\")\n    .scrollIntoView()\n    .should(\"be.visible\");\n// Assert on the Real time text delivery availability\ncy.get(\"div[class='relative h-full flex justify-center flex-col max-w-[600px] mx-auto lg:mx-0']\").contains(\"REAL-TIME DELIVERY ALERTS\");\n// Assert on the paragraph text below the Real time text delivery availability\ncy.get(\"h2[class='text-primary text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight']\").should(\"be.visible\");\n// Step-2: Validate the Navigation buttons\ncy.get(\"div[class='absolute bottom-4 sm:bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 z-10'] > div[class='flex justify-center space-x-1 sm:space-x-2']\")\n    .should(\"be.visible\")\n    .then((buttonsList) => {\n    // Get all buttons in the navigation bottom banner\n    const buttons = buttonsList.find(\"button\");\n    cy.log(`List of Buttons  is: ${buttons}`);\n    expect(buttons.length).to.equal(6);\n});\n// Use a for loop to click on every button and verify it\nlet n = 6; // Number of buttons\nfor (let i = 1; i < n; i++) {\n    cy.get(\"div[class='absolute bottom-4 sm:bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 z-10'] > div[class='flex justify-center space-x-1 sm:space-x-2']\")\n        .should(\"be.visible\")\n        .find(\"button\")\n        .eq(i)\n        .then(($button) => {\n        const beforeColor = $button.css(\"background-color\");\n        cy.log(\"Before color: \" + beforeColor);\n        cy.wrap($button).click();\n        cy.wait(2000);\n        cy.get(\"div[class='absolute bottom-4 sm:bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 z-10'] > div[class='flex justify-center space-x-1 sm:space-x-2']\")\n            .find(\"button\")\n            .eq(i)\n            .then(($btnAfter) => {\n            const afterColor = $btnAfter.css(\"background-color\");\n            cy.log(\"After color: \" + afterColor);\n            expect(afterColor, \"Highlight color should change\").to.not.eq(beforeColor);\n        });\n    });\n    cy.wait(1000);\n}",
+              "err": {
+                "message": "CypressError: Timed out after waiting `60000ms` for your remote page to load.\n\nYour page did not fire its `load` event within `60000ms`.\n\nYou can try increasing the `pageLoadTimeout` value in `cypress.config.ts` to wait longer.\n\nBrowsers will not fire the `load` event until all stylesheets and scripts are done downloading.\n\nWhen this `load` event occurs, Cypress will continue running commands.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Automation Test of MPost we...`",
+                "estack": "CypressError: Timed out after waiting `60000ms` for your remote page to load.\n\nYour page did not fire its `load` event within `60000ms`.\n\nYou can try increasing the `pageLoadTimeout` value in `cypress.config.ts` to wait longer.\n\nBrowsers will not fire the `load` event until all stylesheets and scripts are done downloading.\n\nWhen this `load` event occurs, Cypress will continue running commands.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Automation Test of MPost we...`\n    at timedOutWaitingForPageLoad (https://staging.mpost.global/__cypress/runner/cypress_runner.js:134221:64)\n    at <unknown> (https://staging.mpost.global/__cypress/runner/cypress_runner.js:135215:16)\n    at tryCatcher (https://staging.mpost.global/__cypress/runner/cypress_runner.js:1777:23)\n    at <unknown> (https://staging.mpost.global/__cypress/runner/cypress_runner.js:4156:41)\n    at tryCatcher (https://staging.mpost.global/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://staging.mpost.global/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://staging.mpost.global/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://staging.mpost.global/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://staging.mpost.global/__cypress/runner/cypress_runner.js:1667:18)\n    at _drainQueueStep (https://staging.mpost.global/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (https://staging.mpost.global/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://staging.mpost.global/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://staging.mpost.global/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://testingwithcypress/./cypress/e2e/MPost/home.cy.ts:4:7)",
+                "diff": null
+              },
+              "uuid": "5392c7b9-ad72-4cc5-a935-f8d5bb28c83f",
+              "parentUUID": "2e98535e-08d7-411c-bc77-02ac5328c510",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should Navigate the MPost Home Page section per section",
+              "fullTitle": "Automation Test of MPost website Should Navigate the MPost Home Page section per section",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Assert on the banner’s visibility\ncy.get(\"nav.bg-mpost-blue.text-white.py-4\").should(\"be.visible\");\n// Assert on the Hot sellers products section\ncy.get(\"h1[class='text-3xl md:text-4xl lg:text-5xl font-bold leading-tight']\")\n    .contains(\"Powering Universal Access and Exchange with a Universal Digital Address\")\n    .should(\"be.visible\");\n// Assert on the global navigation section\ncy.get(\".text-mpost-blue.text-2xl.font-normal.mb-4\").should(\"be.visible\");\n// // Assert on the paragraph text below the global title\ncy.get(\"p[class='text-xl sm:text-2xl font-light text-mpost-text-dark mb-4 sm:mb-6 text-left leading-relaxed']\").should(\"be.visible\");\n// Step-3: Scroll to Geolocation section and validate its elements\ncy.get(\"div[class='relative h-full flex justify-center flex-col max-w-[600px] mx-auto lg:mx-0'] div[class='relative']\")\n    .scrollIntoView()\n    .should(\"be.visible\");\n// Assert on the Real time text delivery availability\ncy.get(\"div[class='relative h-full flex justify-center flex-col max-w-[600px] mx-auto lg:mx-0']\").contains(\"REAL-TIME DELIVERY ALERTS\");\n// Assert on the paragraph text below the Real time text delivery availability\ncy.get(\"h2[class='text-primary text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight']\").should(\"be.visible\");\n// Step-4: Scroll to Universal address section and validate its elements\ncy.get(\"div[class='relative h-full flex justify-center flex-col max-w-[600px] mx-auto lg:mx-0'] div[class='relative']\")\n    .scrollIntoView()\n    .should(\"be.visible\");\n// Assert on the Universal address text availability\ncy.get(\"div[class='relative h-full flex justify-center flex-col max-w-[600px] mx-auto lg:mx-0'] div[class='relative']\").contains(\"A UNIVERSAL ADDRESS\");\n// Assert on the paragraph text below the Universal address title\ncy.get(\"h2[class='text-primary text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight']\").contains(\"Never lose a delivery again, no matter where life takes you.\");\n//Step-5: Scroll to Geolocation section and validate its elements\ncy.get(\"div[class='relative h-full flex justify-center flex-col max-w-[600px] mx-auto lg:mx-0'] div[class='relative']\")\n    .scrollIntoView()\n    .should(\"be.visible\");\ncy.get(\"div[class='relative h-full flex justify-center flex-col max-w-[600px] mx-auto lg:mx-0'] div[class='relative']\").should(\"be.visible\");\ncy.wait(2000);\n// Assert on the Geolocation text availability\ncy.get(\"div[class='relative h-full flex justify-center flex-col max-w-[600px] mx-auto lg:mx-0'] div[class='relative']\").contains(\"GEOLOCATION\");\n// Assert on the paragraph text below the Universal address title\ncy.get(\"h2[class='text-primary text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight']\").contains(\"You're always in control of where your deliveries go.\");\n// //Step-6: Navigate to Parcel Locker section\ncy.get(\"div[class='relative h-full flex justify-center flex-col max-w-[600px] mx-auto lg:mx-0'] div[class='relative']\")\n    .scrollIntoView()\n    .should(\"be.visible\");\n// Assert on the Geolocation text availability\ncy.get(\"div[class='relative h-full flex justify-center flex-col max-w-[600px] mx-auto lg:mx-0'] div[class='relative']\").contains(\"PARCEL LOCKERS\");\n// Assert on the paragraph text below the Universal address title\ncy.get(\"h2[class='text-primary text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight']\").contains(\"You're always in control of where your deliveries go.\");",
+              "err": {},
+              "uuid": "563e7a95-961a-4591-846e-11ab1824d9bc",
+              "parentUUID": "2e98535e-08d7-411c-bc77-02ac5328c510",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b48d2862-ec10-4895-9d97-13aed17f213a",
+            "6c683232-447a-4464-9ddd-3390a01f8ddd",
+            "42128590-156a-4f41-8709-c961225ddbe4"
+          ],
+          "failures": [
+            "5392c7b9-ad72-4cc5-a935-f8d5bb28c83f"
+          ],
+          "pending": [],
+          "skipped": [
+            "563e7a95-961a-4591-846e-11ab1824d9bc"
+          ],
+          "duration": 108007,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
