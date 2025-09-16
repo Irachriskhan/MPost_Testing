@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "cy:report:merge": "mochawesome-merge cypress/reports/*.json > cypress/reports/output.json",
-    "cy:report:generate": "marge cypress/reports/output.json --reportDir cypress/reports --inline",
-    "cy:report": "npm run cy:run && npm run cy:report:merge && npm run cy:report:generate",
+    "cy:report:merge": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/output.json",
+    "cy:report:generate": "npx marge cypress/reports/output.json --reportDir cypress/reports --inline",
+    "cy:report": "npm run cy:run && npm run cy:report:generate && npm run cy:report:merge",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "build": "tsc"
